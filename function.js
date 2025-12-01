@@ -110,7 +110,10 @@ function formaterNom(nom) {
   if (!nom.includes("-")) {
     const newName = nom.charAt(0).toUpperCase() + nom.slice(1).toLowerCase();
     return newName;
+
+    // vérifier si le param inclut un caractere precis
   } else if (nom.includes("-")) {
+    // couper le param en 2 tableaux
     const morceau = nom.split("-");
     const firstPartie =
       morceau[0].charAt(0).toUpperCase() + morceau[0].slice(1).toLowerCase();
