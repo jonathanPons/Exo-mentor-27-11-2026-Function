@@ -6,13 +6,13 @@
 //const nouveau = ancien.map((element) => transformation);
 
 //Ex1
-const courses = [5, 10, 15, 21];
-const coursesMiles = courses.map((km) => km * 0.62);
+//const courses = [5, 10, 15, 21];
+//const coursesMiles = courses.map((km) => km * 0.62);
 //console.log(coursesMiles);
 
 //EX2 Calculer allures
 
-const temps = [50, 40, 60]; //minutes
+//const temps = [50, 40, 60]; //minutes
 //const distances = [10, 8, 12]; //km
 
 //const allures = distances.map((dist, index) => temps[index] / dist);
@@ -37,10 +37,10 @@ const temps = [50, 40, 60]; //minutes
 
 //exo 2
 
-const distances = [5, 12, 8, 15, 3, 20, 10];
+//const distances = [5, 12, 8, 15, 3, 20, 10];
 
-const coursesMoyennes = distances.filter((element) => element >= 10);
-console.log(coursesMoyennes);
+//const coursesMoyennes = distances.filter((element) => element >= 10);
+//console.log(coursesMoyennes);
 
 // .reduce() = reduire un array à une seule valeur
 
@@ -72,11 +72,20 @@ console.log(coursesMoyennes);
 //exo 3
 
 // Tu as ces temps de courses en minutes
-const tempsMinutes = [45, 60, 30, 90];
+//const tempsMinutes = [45, 60, 30, 90];
 
 // Calcule le temps TOTAL avec .reduce()
 
-const tempsTotal = tempsMinutes.reduce((acc, temps) => acc + temps, 0);
+//const tempsTotal = tempsMinutes.reduce((acc, temps) => acc + temps, 0);
 
-console.log(tempsTotal + " minutes");
+//console.log(tempsTotal + " minutes");
 // Résultat attendu : 225 minutes
+
+// Exercice : Calculer distance totale ET moyenne
+
+const coursesTotal = [5, 10, 8, 12, 15];
+const total = coursesTotal.reduce((num, km) => num + km, 0);
+const moyenne = total / coursesTotal.length;
+console.log(total);
+console.log(moyenne);
+console.log(`Total: ${total}km, Moyenne: ${moyenne}km.`);
