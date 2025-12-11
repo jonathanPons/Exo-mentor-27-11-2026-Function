@@ -86,6 +86,55 @@
 const coursesTotal = [5, 10, 8, 12, 15];
 const total = coursesTotal.reduce((num, km) => num + km, 0);
 const moyenne = total / coursesTotal.length;
-console.log(total);
-console.log(moyenne);
-console.log(`Total: ${total}km, Moyenne: ${moyenne}km.`);
+//console.log(total);
+//console.log(moyenne);
+//console.log(`Total: ${total}km, Moyenne: ${moyenne}km.`);
+
+//EXO 1
+
+const alluresMin = [5, 4.5, 6, 5.2, 4.8];
+
+const allureSec = alluresMin.map((all) => all * 60);
+//console.log(allureSec);
+
+//EXO2
+
+const coursesTous = [5, 12, 8, 15, 3, 20, 10, 6];
+const coursesLongues = coursesTous.filter((long) => long > 10); //
+//console.log(coursesLongues);
+const totalLongues = coursesLongues.reduce((num, km) => num + km, 0);
+//console.log(totalLongues);
+
+// EXO3
+
+// Tes courses : [distance, temps en minutes]
+const courses = [
+  { distance: 10, temps: 50 }, // allure 5 min/km
+  { distance: 8, temps: 36 }, // allure 4.5 min/km (rapide!)
+  { distance: 12, temps: 66 }, // allure 5.5 min/km
+  { distance: 5, temps: 22 }, // allure 4.4 min/km (rapide!)
+  { distance: 15, temps: 72 }, // allure 4.8 min/km (rapide!)
+];
+
+const allures = courses.map((course, index) => course.temps / course.distance);
+
+// aller chercher les caleurs des objets: 1 er element c'est 1 objet,le second son index
+
+//console.log(allures);
+// ÉTAPE 2 : Garde seulement les courses avec allure < 5
+// (en gardant l'objet course complet, pas juste l'allure)
+const coursesRapides = courses.filter(
+  (course, index) => course.temps / course.distance < 5
+);
+
+console.log(coursesRapides.length);
+
+// ÉTAPE 3 : Calcule distance MOYENNE des courses rapides
+const distanceMoyenne = coursesRapides.reduce(
+  (acc, dist) => acc + dist.distance,
+  0
+);
+
+const distM = distanceMoyenne / coursesRapides.length;
+console.log(distM);
+/* TON CODE avec reduce + length */
