@@ -83,58 +83,110 @@
 
 // Exercice : Calculer distance totale ET moyenne
 
-const coursesTotal = [5, 10, 8, 12, 15];
-const total = coursesTotal.reduce((num, km) => num + km, 0);
-const moyenne = total / coursesTotal.length;
+//const coursesTotal = [5, 10, 8, 12, 15];
+//const total = coursesTotal.reduce((num, km) => num + km, 0);
+//const moyenne = total / coursesTotal.length;
 //console.log(total);
 //console.log(moyenne);
 //console.log(`Total: ${total}km, Moyenne: ${moyenne}km.`);
 
 //EXO 1
 
-const alluresMin = [5, 4.5, 6, 5.2, 4.8];
+//const alluresMin = [5, 4.5, 6, 5.2, 4.8];
 
-const allureSec = alluresMin.map((all) => all * 60);
+//const allureSec = alluresMin.map((all) => all * 60);
 //console.log(allureSec);
 
 //EXO2
 
-const coursesTous = [5, 12, 8, 15, 3, 20, 10, 6];
-const coursesLongues = coursesTous.filter((long) => long > 10); //
+//const coursesTous = [5, 12, 8, 15, 3, 20, 10, 6];
+//const coursesLongues = coursesTous.filter((long) => long > 10); //
 //console.log(coursesLongues);
-const totalLongues = coursesLongues.reduce((num, km) => num + km, 0);
+//const totalLongues = coursesLongues.reduce((num, km) => num + km, 0);
 //console.log(totalLongues);
 
 // EXO3
 
 // Tes courses : [distance, temps en minutes]
-const courses = [
-  { distance: 10, temps: 50 }, // allure 5 min/km
-  { distance: 8, temps: 36 }, // allure 4.5 min/km (rapide!)
-  { distance: 12, temps: 66 }, // allure 5.5 min/km
-  { distance: 5, temps: 22 }, // allure 4.4 min/km (rapide!)
-  { distance: 15, temps: 72 }, // allure 4.8 min/km (rapide!)
-];
+//const courses = [
+//{ distance: 10, temps: 50 }, // allure 5 min/km
+//{ distance: 8, temps: 36 }, // allure 4.5 min/km (rapide!)
+//{ distance: 12, temps: 66 }, // allure 5.5 min/km
+//{ distance: 5, temps: 22 }, // allure 4.4 min/km (rapide!)
+//{ distance: 15, temps: 72 }, // allure 4.8 min/km (rapide!)
+//];
 
-const allures = courses.map((course, index) => course.temps / course.distance);
+//const allures = courses.map((course, index) => course.temps / course.distance);
 
-// aller chercher les caleurs des objets: 1 er element c'est 1 objet,le second son index
+// aller chercher les valeurs des objets: 1 er element c'est 1 objet,le second son index
 
 //console.log(allures);
 // ÉTAPE 2 : Garde seulement les courses avec allure < 5
 // (en gardant l'objet course complet, pas juste l'allure)
-const coursesRapides = courses.filter(
-  (course, index) => course.temps / course.distance < 5
-);
+//const coursesRapides = courses.filter(
+//(course, index) => course.temps / course.distance < 5
+//);
 
-console.log(coursesRapides.length);
+//console.log(coursesRapides.length);
 
 // ÉTAPE 3 : Calcule distance MOYENNE des courses rapides
-const distanceMoyenne = coursesRapides.reduce(
-  (acc, dist) => acc + dist.distance,
-  0
-);
+//const distanceMoyenne = coursesRapides.reduce(
+//(acc, dist) => acc + dist.distance,
+//0
+//);
 
-const distM = distanceMoyenne / coursesRapides.length;
-console.log(distM);
+//const distM = distanceMoyenne / coursesRapides.length;
+//console.log(distM);
 /* TON CODE avec reduce + length */
+
+//EXO 1 12/12/2025
+
+//const distances = [5, 10, 8, 15, 12, 20];
+
+// En 1 SEULE ligne avec chaînage :
+// 1. Garde courses >= 10km
+// 2. Calcule le total
+
+//const totalLongues = distances
+//.filter((element) => element >= 10)
+//.reduce((acc, km) => acc + km, 0);
+
+//console.log(totalLongues);
+// Attendu : 10 + 15 + 12 + 20 = 57
+
+//EXO 2
+const courses = [
+  { distance: 10, temps: 50 }, // 5.0 min/km
+  { distance: 8, temps: 36 }, // 4.5 min/km (rapide!)
+  { distance: 12, temps: 66 }, // 5.5 min/km
+  { distance: 5, temps: 20 }, // 4.0 min/km (le plus rapide!)
+  { distance: 15, temps: 72 }, // 4.8 min/km
+  { distance: 6, temps: 33 }, // 5.5 min/km
+];
+
+// ÉTAPE 1 : Ajoute l'allure à chaque objet
+// Utilise .map() pour créer nouveaux objets avec propriété "allure"
+const coursesAvecAllure = courses.map((course) => {
+  return {
+    distance: course.distance,
+    temps: course.temps,
+    allure: course.temps / course.distance, // TON CALCUL ICI
+  };
+});
+
+console.log(coursesAvecAllure);
+// Chaque objet doit avoir : { distance, temps, allure }
+
+// ÉTAPE 2 : Trie par allure (ordre croissant = rapide d'abord)
+// Nouvelle méthode : .sort()
+//Syntaxe : array.sort((a, b) => a.propriété - b.propriété)
+const coursesTriees = coursesAvecAllure.sort((a, b) => a.allure - b.allure);
+console.log(coursesTriees);
+
+// ÉTAPE 3 : Garde seulement les 3 premières
+// Nouvelle méthode : .slice(début, fin)
+// Syntaxe : array.slice(0, 3) = garde index 0, 1, 2
+const top3 = coursesTriees.slice(0, 3);
+
+console.log(top3);
+// Attendu : 3 courses avec allures 4.0, 4.5, 4.8
