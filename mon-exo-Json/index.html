@@ -1,0 +1,45 @@
+html<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mes Courses</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+      }
+
+      .course-card {
+        border: 2px solid #333;
+        padding: 15px;
+        margin: 10px 0;
+        border-radius: 5px;
+      }
+
+      .course-card h3 {
+        margin: 0 0 10px 0;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Mes Courses Running</h1>
+
+    <button id="charger">Charger les courses</button>
+
+    <div id="container">
+      <!-- Les courses s'afficheront ici -->
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
