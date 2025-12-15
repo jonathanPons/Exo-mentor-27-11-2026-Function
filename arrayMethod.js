@@ -190,3 +190,73 @@ const top3 = coursesTriees.slice(0, 3);
 
 console.log(top3);
 // Attendu : 3 courses avec allures 4.0, 4.5, 4.8
+
+// .sort()
+// Trie les éléments d'un array selon une fonction de comparaison
+// array.sort((a,b)=> comparaison)
+//a= premier element à comparer
+//b= deuxieme element à comparer
+//comparaison= calcul qui determine l'ordre//
+
+// Si (a - b) < 0 → a vient AVANT b (ordre croissant)
+// Si (a - b) > 0 → a vient APRÈS b
+// Si (a - b) = 0 → ordre inchangé
+
+//Trier nombres croissants :
+//javascriptconst nombres = [5, 2, 8, 1, 9];
+//nombres.sort((a, b) => a - b);
+// [1, 2, 5, 8, 9]
+//Trier nombres décroissants :
+//javascriptconst nombres = [5, 2, 8, 1, 9];
+//nombres.sort((a, b) => b - a);
+// [9, 8, 5, 2, 1]
+//Trier objets par propriété :
+//javascriptconst personnes = [
+// { nom: "Alice", age: 30 },
+// { nom: "Bob", age: 25 },
+// { nom: "Charlie", age: 35 }
+//];
+
+// Trier par âge croissant
+//personnes.sort((a, b) => a.age - b.age);
+// Bob(25), Alice(30), Charlie(35)//
+
+//⚠️ IMPORTANT :
+//.sort() modifie l'array original (mute l'array)
+
+//Methode Slice
+//Définitiion = Extrait porton d'un array Sans modifier l'original
+
+//array.slice(indexdebut, indexFin)
+//indexDébut = ou commencer (inclus)
+//indexFin= ou s'arreter ( non inclus)
+
+//Comment ça marche :
+//javascript// Garde les éléments de indexDébut jusqu'à indexFin-1
+//Exemples simples :
+//Garder les 3 premiers :
+//javascriptconst nombres = [10, 20, 30, 40, 50];
+//const top3 = nombres.slice(0, 3);
+// [10, 20, 30]
+// index 0, 1, 2
+//Garder du milieu :
+//j//avascriptconst nombres = [10, 20, 30, 40, 50];
+//const milieu = nombres.slice(1, 4);
+// [20, 30, 40]
+// index 1, 2, 3
+//Garder à partir d'un index :
+//javascriptconst nombres = [10, 20, 30, 40, 50];
+//const reste = nombres.slice(2);
+// [30, 40, 50]
+// À partir de l'index 2 jusqu'à la fin
+//Garder les derniers :
+//javascriptconst nombres = [10, 20, 30, 40, 50];
+//const derniers = nombres.slice(-2);
+// [40, 50]
+// Les 2 derniers éléments
+//Ton cas (top 3) :
+//javascriptcoursesTriees.slice(0, 3);
+// Garde index 0, 1, 2
+// Les 3 premières courses (les plus rapides)
+//⚠️ IMPORTANT :
+//.slice() NE modifie PAS l'array original (retourne nouveau array)//
