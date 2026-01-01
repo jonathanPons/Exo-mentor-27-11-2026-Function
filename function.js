@@ -123,7 +123,110 @@ function formaterNom(nom) {
     return nouveauPrenom;
   }
 }
-console.log(formaterNom("pierre"));
-console.log(formaterNom("LUCAS"));
-console.log(formaterNom("jean-marc"));
-console.log(formaterNom("marie-FRANCE"));
+//console.log(formaterNom("pierre"));
+//console.log(formaterNom("LUCAS"));
+//console.log(formaterNom("jean-marc"));
+//console.log(formaterNom("marie-FRANCE"));
+
+//Niveau 1 – Facile (validation des bases)
+
+//Déclare une variable age
+
+//Écris une condition qui affiche "majeur" ou "mineur"
+
+//Écris une fonction double(n) qui retourne le double
+
+function validerAge(age) {
+  if (age < 18) {
+    console.log("Mineur");
+    return;
+  } else {
+    console.log("majeur");
+    return;
+  }
+}
+validerAge(19);
+
+//Niveau 2 – Intermédiaire (raisonnement)
+
+//Fonction isEven(n) → retourne true ou false
+
+function isEven(n) {
+  if (typeof n !== "number") {
+    return false;
+  } else {
+    return true;
+    console.log("true");
+  }
+}
+console.log(isEven(7));
+console.log(isEven("hjbdhjebd"));
+//Fonction compare(a, b) :
+
+//retourne "a > b", "a < b" ou "égal"
+
+//Gérer les cas où les paramètres ne sont pas des nombres
+
+//Règles :
+
+//function calculatePrice(price, isMember) {
+  //if (typeof price !== "number" && price < 0) {
+    //return null;
+  //} else if (typeof price === "number" && price > 0) {
+    //if (isMember === true) {
+      //let remise = (prix * 20) / 100;
+
+      //return price - remise;
+    //}
+    //price doit être un nombre > 0
+  //}
+//}
+//price doit être un nombre > 0
+
+//console.log(calculatePrice(50, true));
+
+//si isMember === true → réduction 20%
+ Entrées : Array number >=0
+ Sortie : nombre d'elements age de 18 ans et +
+ Cas invalide : SI age n'est pas un array , si les elements ne sont pas des nombres, si ils sont inferieurs à zero 
+ Chemins : Si typeof est differents de Array = Null, si Array vide renvoi Null , Si element ne sont pas des Numbers ou inferieur à zero renvoyer Null
+ Sinon renvoyer le nombre d'element filtré de plus de 18 ans 
+
+function countAdults(ages) {
+
+  if (!Array.isArray(ages) ) {
+    return null
+    
+  }
+  if (ages.length === 0) {
+    return 0
+    
+  }
+  
+  let compteur=0
+
+  for (let index = 0; index < ages.length; index++) {
+    const element = ages[index];
+    if (typeof element !== "number" || element<0 ||  Number.isNaN(element) ) {
+    return null 
+    
+  }
+else {
+     
+if (element>=18) {
+  compteur++
+}
+  
+
+  }
+
+  
+  
+  
+    return compteur
+  }
+
+
+  
+}
+
